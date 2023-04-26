@@ -17,7 +17,7 @@ const errorHandler = require("./Middleware/ErrorHandler");
 
 const corsOptions = {
   credentials: true,
-  origin: "https://authentication-ten-orpin.vercel.app",
+  origin: "http://localhost:5173",
 };
 
 // Middleware
