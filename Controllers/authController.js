@@ -33,7 +33,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "http://localhost:5173";
+  const origin = "https://vite-auth.netlify.app";
 
   await sendVerificationEmail({
     name: user.name,
@@ -147,7 +147,7 @@ const forgotPassword = async (req, res) => {
     const verifyToken = crypto.randomBytes(72).toString("hex");
 
     //send email
-    const origin = "http://localhost:5173";
+    const origin = "https://vite-auth.netlify.app";
 
     await sendResetPassword({
       name: user.name,
