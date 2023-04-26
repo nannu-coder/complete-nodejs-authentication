@@ -17,7 +17,7 @@ const errorHandler = require("./Middleware/ErrorHandler");
 
 const corsOptions = {
   credentials: true,
-  origin: "http://localhost:5173",
+  origin: "https://vite-auth.netlify.app",
 };
 
 // Middleware
