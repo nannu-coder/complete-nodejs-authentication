@@ -15,7 +15,7 @@ const cookiesResponse = ({ res, user, refreshToken }) => {
   const longExp = 1000 * 60 * 60 * 24 * 3;
 
   res.cookie("accessToken", accessTokenJWT, {
-    httpOnly: true,
+    httpOnly: false,
     secure: true,
     signed: true,
     sameSite: "none",
@@ -23,7 +23,7 @@ const cookiesResponse = ({ res, user, refreshToken }) => {
   });
 
   res.cookie("refreshToken", refreshTokenJWT, {
-    httpOnly: true,
+    httpOnly: false,
     secure: true,
     signed: true,
     sameSite: "none",
