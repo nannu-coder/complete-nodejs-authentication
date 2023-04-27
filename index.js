@@ -24,6 +24,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cookieParser(process.env.JWT_SECRET));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Authentication!");
