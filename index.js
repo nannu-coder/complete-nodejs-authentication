@@ -14,10 +14,10 @@ const userRoute = require("./Routes/UserRoutes");
 // Middleware Path
 const notFound = require("./Middleware/NotFoundMiddleware");
 const errorHandler = require("./Middleware/ErrorHandler");
+const authenTicate = require("./Middleware/Authenticate");
 
 const corsOptions = {
   credentials: true,
-  origin: "https://vite-auth.netlify.app",
 };
 
 // Middleware
@@ -26,8 +26,14 @@ app.use(cors(corsOptions));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Authentication!");
+app.get("/", authenTicate, (req, res) => {
+  // res.send("Authentication!");
+  const myCookie = req.signedCookies.refreshToken;
+
+  const domain = req.signedCookies.myCookie.domain;
+  const path = req.signedCookies.myCookie.path;
+
+  res.send({ domain, path });
 });
 
 app.use("/api/v1/auth", authRoute);
